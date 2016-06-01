@@ -2,7 +2,6 @@ import random
 def number_game():
     random_num = random.randint(1,100)
     count = 0
-
     for count in range(1,6):
         try:
             guess = int(input("Guess a number between 1 and 100:"))
@@ -16,14 +15,18 @@ def number_game():
             break
     if guess == random_num:
         print("You guessed {}, that's my number !".format(random_num))
-        number_game()
+        end_game()
     else:
         print("You didn't guess it. My number was {}.".format(random_num))
-        play_again = input("Do you want to play again? y/n").lower()
-        if play_again == 'y':
-            number_game()
-        else:
-            print("Goodbye!")
+        end_game()
+
+
+def end_game():
+    play_again = input("Do you want to play again? y/n").lower()
+    if play_again == 'y':
+        number_game()
+    else:
+        print("Goodbye!")
 
 number_game()
 
